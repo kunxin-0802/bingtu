@@ -1,0 +1,101 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=pie-simple&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOQBMADNQIyAueoIhGgv2qCAAU4F1ygtHKBXgYBHowPN-gOVtAbU6BWxUB_apQA0RdLgBmFWJQDGOaGBwAnSkQC-C9GGDAskEAVTEMeiAHMn-qhF0BbQ-hNFcrtAAJrZEwI7aapQAFuEQAF4wYACGWPJEAEbAYOaeBLSmsCpRWjr66egeOJ4A6hBBYNEEdHLoAPRtsNKA0fLSgEb6gL3agGV6RFWeAOLJNrAMtPawHV3dgC-pgLuxKH5EGpbhBADalADEAGzHAEJnxwCC8uqHAJwAws_HAKy3RwBinwCiP68ADg-h2-VwA7NRjvJKLBDlcGACAWDPpQALqtIgAZ30EBwmP2ikI81g0GSnnw6iuGi0mMxsE-emA3kK9jAAE8QBTKCBcRV5npkkEIABXfHqV60ACkfPsQWSKQJxPQSFgADdUsKKQBmAB0r1apPJVEAeumADj0BoBViJhfiVyDVGopCJ1YINZK5gBXrQDB8ZbrSz5ir1VhNQRjgwddRXUb1IAv9UANOaAfE1ABSuvsJ9gDDoIDF190jHs9gAe1QB9aSnbemgxTqM7cybTUXranYOiG1hkhkcFhQrblOFPPLdHoqEgMkZbEEjNKFp0h0ZABYRgC5PQCwKoAHz0AMP9IMfzwB-boAwJXdDZt82qIGiyUxEDFdiVYwAyuzcJ3bbBMSegsAAO5nIMDmYFBv2Z-Cu-ADyyjKNiYAABr5H6xIAa-b6PDs36UHoTgZMkAAUDCtAUsC4bQeoAJQ-EqRj7oSZHoKiGwANxAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div style="width:60%; height:100%; margin:0 auto;">
+
+<div id="container" style="height:100%;"></div>
+
+</div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: '2021年我国老年人中自评经济状况图',
+top: 120,
+    left: 'center'
+  },
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+  orient: 'horizontal',
+  bottom: 120,
+  left: 'center',
+  itemWidth: 20,  // 图例图形宽度
+  itemGap: 10     // 图例间距
+},
+
+  color: ['#66BB6A', '#9CCC65', '#FFEE58', '#FFA726',' #A1887F'], 
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: '50%',
+      data: [
+        { value: 3.5, name: '非常宽裕' },
+        { value: 18.7, name: '比较宽裕' },
+        { value: 61.2, name: '基本够用' },
+        { value: 13.9, name: '比较困难' },
+        { value: 2.7, name: '非常困难' }
+      ],
+      label: {
+        formatter: '{b}: {d}%' // {b}表示名称，{d}表示百分比
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(1, 0, 0, 0.5)'
+        }
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
